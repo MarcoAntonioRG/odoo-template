@@ -75,15 +75,16 @@
           pip install --upgrade pip
           pip install -r .idx/.data/odoo/requirements.txt
 
-          if [ -f "$(pwd)/.idx/.data/odoo/odoo-bin" ]; then
-            ln -s \$(pwd)/.idx/.data/odoo/odoo-bin" .venv/bin/odoo-bin
+          BIN_PATH="$(pwd)/.idx/.data/odoo/odoo-bin"
+          if [ -f "$BIN_PATH" ]; then
+            ln -s "$BIN_PATH" .venv/bin/odoo-bin
           fi
 
           odoo-bin --save --stop-after-init
           mv ../.odoorc odoo.conf
 
           sed -i \
-            -e "/^addons_path =/ s,\$,,$(pwd)/custom_addons," \
+            -e "/^addons_path =/ s|$|,$(pwd)/custom_addons|" \
             -e "s|.local/share/Odoo|.idx/.data/odoo-data|g" \
             odoo.conf
         '';
