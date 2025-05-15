@@ -8,9 +8,6 @@
       packagesV15 = [
         "pkgs.gcc"
         "pkgs.python39"
-        "pkgs.openldap"
-        "pkgs.openldap.dev"
-        "pkgs.cyrus_sasl.dev"
         "pkgs.libpqxx"
         "pkgs.libxml2.dev"
         "pkgs.libxslt.dev"
@@ -19,9 +16,6 @@
       packagesV16 = [
         "pkgs.gcc"
         "pkgs.python311Full"
-        "pkgs.openldap"
-        "pkgs.openldap.dev"
-        "pkgs.cyrus_sasl.dev"
         "pkgs.libpqxx"
       ];
 
