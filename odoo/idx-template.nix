@@ -60,14 +60,14 @@
       enable = true;
       previews = {
         web = {
-          command = ["sh" "httpserver.sh" "$PORT"];
+          command = ["sh" "httpserver.sh" "\$PORT"];
           manager = "web";
         };
       };
     };
     workspace = {
       onCreate = {
-        odoo-install = ''
+        odoo-install = \'\'
           set -e
           echo "✅ Creando entorno virtual..."
           python -m venv .venv
@@ -75,19 +75,19 @@
           pip install --upgrade pip
           pip install -r .idx/.data/odoo/requirements.txt
 
-          BIN_PATH="$(pwd)/.idx/.data/odoo/odoo-bin"
-          if [ -f "$BIN_PATH" ]; then
-            ln -s "$BIN_PATH" .venv/bin/odoo-bin
+          BIN_PATH="\$(pwd)/.idx/.data/odoo/odoo-bin"
+          if [ -f "\$BIN_PATH" ]; then
+            ln -s "\$BIN_PATH" .venv/bin/odoo-bin
           fi
 
           odoo-bin --save --stop-after-init
           mv ../.odoorc odoo.conf
 
           sed -i \
-            -e "/^addons_path =/ s|$|,$(pwd)/custom_addons|" \
+            -e "/^addons_path =/ s|$|,\$(pwd)/custom_addons|" \
             -e "s|.local/share/Odoo|.idx/.data/odoo-data|g" \
             odoo.conf
-        '';
+        \'\';
         default.openFiles = [ "README.md" ];
       };
     };
