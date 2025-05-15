@@ -75,16 +75,16 @@
           pip install --upgrade pip
           pip install -r .idx/.data/odoo/requirements.txt
 
-          if [ -f "\$(pwd)/.idx/.data/odoo/odoo-bin" ]; then
-            ln -s "\$(pwd)/.idx/.data/odoo/odoo-bin" .venv/bin/odoo-bin
+          if [ -f "$(pwd)/.idx/.data/odoo/odoo-bin" ]; then
+            ln -s \$(pwd)/.idx/.data/odoo/odoo-bin" .venv/bin/odoo-bin
           fi
 
           odoo-bin --save --stop-after-init
           mv ../.odoorc odoo.conf
 
-          sed -i \\
-            -e "/^addons_path =/ s/\\\$/,\\\$(pwd)\\/custom_addons/" \\
-            -e "s|.local/share/Odoo|.idx/.data/odoo-data|g" \\
+          sed -i \
+            -e "/^addons_path =/ s,\$,,$(pwd)/custom_addons," \
+            -e "s|.local/share/Odoo|.idx/.data/odoo-data|g" \
             odoo.conf
         '';
         default.openFiles = [ "README.md" ];
