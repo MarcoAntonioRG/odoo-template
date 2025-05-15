@@ -74,13 +74,17 @@
           source .venv/bin/activate
           pip install --upgrade pip
           pip install -r .idx/.data/odoo/requirements.txt
-          ln -s /home/user/\$WS_NAME/.idx/.data/odoo/odoo-bin .venv/bin/odoo-bin
-          ln -s /usr/lib/libldap.so .venv/lib/libldap_r.so
+
+          if [ -f "\$(pwd)/.idx/.data/odoo/odoo-bin" ]; then
+            ln -s "\$(pwd)/.idx/.data/odoo/odoo-bin" .venv/bin/odoo-bin
+          fi
+
           odoo-bin --save --stop-after-init
           mv ../.odoorc odoo.conf
+
           sed -i \\
-            -e "/^addons_path =/ s/\\\$/,\\/home\\/user\\/\\\$WS_NAME\\/custom_addons/" \\
-            -e "s/.local\\/share\\/Odoo/\\\$WS_NAME/.idx/.data/odoo-data/g" \\
+            -e "/^addons_path =/ s/\\\$/,\\\$(pwd)\\/custom_addons/" \\
+            -e "s|.local/share/Odoo|.idx/.data/odoo-data|g" \\
             odoo.conf
         '';
         default.openFiles = [ "README.md" ];
