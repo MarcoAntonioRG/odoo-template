@@ -21,9 +21,7 @@ def create_module(module_name, target_path):
                 print(f"❌ Error al procesar '{relative_path}': {e}")
                 raise
 
-
     print(f"✅ Módulo '{module_name}' creado en: {module_path}")
-
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
