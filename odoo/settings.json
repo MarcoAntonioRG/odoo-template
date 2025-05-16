@@ -1,5 +1,0 @@
-{
-    "python.autoComplete.extraPaths": [
-        "${workspaceFolder}/.idx/.data/odoo"
-    ]
-}
