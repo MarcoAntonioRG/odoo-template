@@ -13,7 +13,7 @@ Script para generar estructura de archivos necesarios para desarrollar módulos 
 2. Abre la carpeta con tu editor de código preferido y ejecuta en la terminal:
 
     ```bash
-    python odoo_scaffold.py <nombre de tu módulo> ./addons_custom
+    python odoo_scaffold.py <nombre de tu módulo> ./custom-addons
     ```
 
-3. Dirigite a la carpeta **addons_custom** y comienza a trabajar en el módulo creado.
+3. Dirigite a la carpeta **custom-addons** y comienza a trabajar en el módulo creado.
