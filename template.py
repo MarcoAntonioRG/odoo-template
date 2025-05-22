@@ -122,7 +122,7 @@ Long description of module's purpose
 
     "security/ir.model.access.csv": '''id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_{module_name}_{module_name},{module_name}.{module_name},model_{module_name}_{module_name},base.group_user,1,1,1,1
-    ''',
+''',
 
     "views/templates.xml": '''<odoo>
     <data>
